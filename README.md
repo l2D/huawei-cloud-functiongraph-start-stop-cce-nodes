@@ -1,4 +1,6 @@
 # CCE Nodes Start/Stop Function
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fl2D%2Fhuawei-cloud-functiongraph-start-stop-cce-nodes.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fl2D%2Fhuawei-cloud-functiongraph-start-stop-cce-nodes?ref=badge_shield)
+
 
 This serverless function is designed to start or stop Elastic Cloud Server (ECS) instances on Huawei Cloud. It's intended to be deployed on FunctionGraph.
 
@@ -116,3 +118,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fl2D%2Fhuawei-cloud-functiongraph-start-stop-cce-nodes.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fl2D%2Fhuawei-cloud-functiongraph-start-stop-cce-nodes?ref=badge_large)
