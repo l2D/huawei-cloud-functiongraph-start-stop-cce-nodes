@@ -21,15 +21,18 @@ def list_clusters(client: CceClient, logger: Any) -> List[Dict[str, str]]:
     resp_list_clusters = client.list_clusters(list_clusters_req)
     
     cluster_list = []
-    for cluster in resp_list_clusters.clusters:
-        logger.info(f"Cluster ID: {cluster.id}, Name: {cluster.name}")
-        cluster_list.append({"cluster_id": cluster.id, "cluster_name": cluster.name})
-    
+    for cluster in resp_list_clusters.items:
+        cluster_list.append({"cluster_id": cluster.metadata.uid, "cluster_name": cluster.metadata.name})
+
     logger.info("Cluster listing successful")
+    logger.info(f"Cluster list: {cluster_list}")
     return cluster_list
 
 def hibernate_cluster(client: CceClient, logger: Any, cluster_ids: str) -> Dict[str, Any]:
+    logger.info("Starting to list clusters")
     cluster_list = list_clusters(client, logger)
+    
+    logger.info(f"Cluster IDs to hibernate: {cluster_ids}")
 
     cluster_to_hibernate = []
     for cluster in cluster_list:
@@ -40,11 +43,11 @@ def hibernate_cluster(client: CceClient, logger: Any, cluster_ids: str) -> Dict[
             })
     
     logger.info("Starting to hibernate cluster")
-    for cluster_id in cluster_to_hibernate:
+    for cluster in cluster_to_hibernate:
         hibernate_req = HibernateClusterRequest()
-        hibernate_req.body = {"cluster_id": cluster_id}
+        hibernate_req.cluster_id = cluster["cluster_id"]
         client.hibernate_cluster(hibernate_req)
-        logger.info(f"Cluster ID: {cluster_id['cluster_id']}, Name: {cluster_id['cluster_name']} started hibernation process")
+        logger.info(f"Cluster ID: {cluster['cluster_id']}, Name: {cluster['cluster_name']} started hibernation process")
     logger.info("Cluster hibernation successful")
     
     return {
@@ -55,7 +58,10 @@ def hibernate_cluster(client: CceClient, logger: Any, cluster_ids: str) -> Dict[
     }
     
 def awake_cluster(client: CceClient, logger: Any, cluster_ids: str) -> Dict[str, Any]:
+    logger.info("Starting to list clusters")
     cluster_list = list_clusters(client, logger)
+    
+    logger.info(f"Cluster IDs to awake: {cluster_ids}")
     
     cluster_to_awake = []
     for cluster in cluster_list:
@@ -66,11 +72,11 @@ def awake_cluster(client: CceClient, logger: Any, cluster_ids: str) -> Dict[str,
             })
     
     logger.info("Starting to awake cluster")
-    for cluster_id in cluster_to_awake:
+    for cluster in cluster_to_awake:
         awake_req = AwakeClusterRequest()
-        awake_req.body = {"cluster_id": cluster_id}
+        awake_req.cluster_id = cluster["cluster_id"]
         client.awake_cluster(awake_req)
-        logger.info(f"Cluster ID: {cluster_id['cluster_id']}, Name: {cluster_id['cluster_name']} started awakening process")
+        logger.info(f"Cluster ID: {cluster['cluster_id']}, Name: {cluster['cluster_name']} started awakening process")
     
     logger.info("Cluster awakening successful")
     
