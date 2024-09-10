@@ -1,6 +1,7 @@
 # CCE Nodes Start/Stop Function
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fl2D%2Fhuawei-cloud-functiongraph-start-stop-cce-nodes.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fl2D%2Fhuawei-cloud-functiongraph-start-stop-cce-nodes?ref=badge_shield)
 
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fl2D%2Fhuawei-cloud-functiongraph-start-stop-cce-nodes.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fl2D%2Fhuawei-cloud-functiongraph-start-stop-cce-nodes?ref=badge_shield)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=l2D_huawei-cloud-functiongraph-start-stop-cce-nodes&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=l2D_huawei-cloud-functiongraph-start-stop-cce-nodes)
 
 This serverless function is designed to start or stop Elastic Cloud Server (ECS) instances on Huawei Cloud. It's intended to be deployed on FunctionGraph.
 
