@@ -1,3 +1,3 @@
-huaweicloudsdkcore==3.1.117
+huaweicloudsdkcore==3.1.125
 huaweicloudsdkecs==3.1.116
 huaweicloudsdkcce==3.1.117
